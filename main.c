@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
 Welche Speicherbereiche gibt es in einem C-Programm?
@@ -7,7 +8,7 @@ Wozu dienen die einzelnen Speicherbereiche?
     statische Daten - initialisiertes Datensegment und nicht initialisiertes Datensegment,
                       enthält jeweils explizit initialisierte oder nicht initialisierte, mit null
                       initialisierte global deklarierte Variablen
-    Stack - Funktionen und lokale Variablen
+    Stack - Funktionen und lokale Variablen, current scope
     Heap - während der Laufzeit dynamisch Speicher allokieren und zugreifen
 
 Mit welchem Befehl kann man Speicher allokieren?
@@ -55,7 +56,20 @@ Was passiert, wenn man auf freigegebenen Speicher zugreift?
  *
  */
 
+void aufg3(){
+    int a = 10;
+    int b = 100;
+    int c = -73456543;
+    int *pA = &a;
+    int *pB = &b;
+    int *pC = &c;
+    int *pD;
+    printf("%d %d %d\n", *pA, *pB, *pC);
+    //printf("%d %d %d %d", *pA, *pB, *pC, *pD);
+    printf("%p %p %p\n", *pA, *pB, *pC);
+}
 
 int main() {
+    aufg3();
     return 0;
 }
