@@ -115,6 +115,6 @@ int main() {
     //aufg3();
     //aufg4();
     //aufg5();
-    aufg6();
+    //aufg6();
     return 0;
 }
