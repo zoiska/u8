@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 /*
 Welche Speicherbereiche gibt es in einem C-Programm?
@@ -69,7 +71,50 @@ void aufg3(){
     printf("%p %p %p\n", *pA, *pB, *pC);
 }
 
+void aufg4(){
+    int arr[100];
+    int *ptr = arr;
+    int sum;
+    for(int i = 0; i < 100; i++){
+        *(ptr + 1) = *ptr + 2;
+        sum += *(ptr + 1);
+    }
+    printf("Summe aller Elemente ist %d\n", sum);
+}
+
+void aufg5(){
+    long *yee = (long *) malloc(100 * sizeof(long));
+    for(int i = 1; i < 100; i++){
+        yee[i] = yee[i - 1] + 2;
+        printf("%ld ", yee[i]);
+    }
+    yee = (long *)realloc(yee, 200 * sizeof(long));
+    free(yee);
+}
+
+void aufg6(){
+    char *str = (char *)malloc(101 * sizeof(char));
+    int blank = 0, alpha = 0, digit = 0;
+    fgets(str, 100, stdin);
+    for(int i = 0; i < strlen(str); i++){
+        if(isblank(str[i])){
+            blank++;
+        }
+        if(isalpha(str[i])){
+            alpha++;
+        }
+        if(isdigit(str[i])){
+            digit++;
+        }
+        printf("%c ", str[i]);
+    }
+    printf("\nAnzahl Leerzeichen: %d\nAnzahl Buchstaben: %d\nAnzahl Ziffern: %d", blank, alpha, digit);
+}
+
 int main() {
-    aufg3();
+    //aufg3();
+    //aufg4();
+    //aufg5();
+    aufg6();
     return 0;
 }
