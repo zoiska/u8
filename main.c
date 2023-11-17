@@ -73,11 +73,13 @@ void aufg3(){
 
 void aufg4(){
     int arr[100];
-    int *ptr = arr;
-    int sum;
+    int sum = 0;
     for(int i = 0; i < 100; i++){
-        *(ptr + 1) = *ptr + 2;
-        sum += *(ptr + 1);
+        arr[i] = i + 2;
+    }
+    int *ptr = arr;
+    for(int i = 0; i < 100; i++){
+        sum += *(ptr + i);
     }
     printf("Summe aller Elemente ist %d\n", sum);
 }
